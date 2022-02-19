@@ -18,17 +18,17 @@
 		compatible = "gpio-leds";
 
 		status-red {
-			label = "red:status";
+			label = "red:sys";
 			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
 		};
 
 		status-green {
-			label = "green:status";
+			label = "green:sys";
 			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 		};
 
-		Internet: status-blue {
-			label = "blue:status";
+		statys-blue {
+			label = "blue:statys";
 			gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
 		};
 
@@ -71,6 +71,16 @@
 	};
 };
 
+&sdhci {
+	status = "okay";
+        pinctrl-names = "default";
+        pinctrl-0 = <&sdhci_pins>;
+};
+
+&xhci {
+	status = "okay";
+};
+
 &spi0 {
 	status = "okay";
 
@@ -103,7 +113,7 @@
 
 		partition@1f80000 {
 			label = "Storage";
-			reg = <0x1e00000 0x2000000>; /* 2048K */
+			reg = <0x1e00000 0x200000>; /* 2048K */
 		};
 
 		partition@all {
@@ -113,18 +123,9 @@
 	};
 };
 
-&sdhci {
-	status = "okay";
-};
-
 &pcie {
 	status = "okay";
 };
-
-&xhci {
-	status = "okay";
-};
-
 &u3phy1 {
 	status = "okay";
 };
