@@ -50,7 +50,7 @@ void reset_lan6_vars(void)
 			ipv6_from_string(lan_addr6, &addr6);
 			inet_ntop(AF_INET6, &addr6, addr6s, INET6_ADDRSTRLEN);
 			if (lan_size6 < 48 || lan_size6 > 64)
-				lan_size6 = 64;
+				lan_size6 = 60;
 			sprintf(addr6s, "%s/%d", addr6s, lan_size6);
 		}
 	}
